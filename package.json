@@ -1,0 +1,117 @@
+{
+  "name": "motion-presets-kit",
+  "version": "0.1.0",
+  "description": "Set tipado y validado en runtime de helpers y presets para motion/react: fade, slide, scale, clipReveal, parentVariants, más componentes como TextAnimate, Marquee, Draggable y el hook useCounter.",
+  "keywords": [
+    "motion",
+    "motion-react",
+    "framer-motion",
+    "animation",
+    "presets",
+    "variants",
+    "react",
+    "typescript",
+    "zod",
+    "agent-skill",
+    "ai"
+  ],
+  "license": "MIT",
+  "author": "Orlando Lopez",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrlandoDev17/motion-presets-kit.git"
+  },
+  "homepage": "https://github.com/OrlandoDev17/motion-presets-kit#readme",
+  "bugs": {
+    "url": "https://github.com/OrlandoDev17/motion-presets-kit/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./presets": {
+      "import": {
+        "types": "./dist/presets.d.ts",
+        "default": "./dist/presets.js"
+      },
+      "require": {
+        "types": "./dist/presets.d.cts",
+        "default": "./dist/presets.cjs"
+      }
+    },
+    "./components": {
+      "import": {
+        "types": "./dist/components.d.ts",
+        "default": "./dist/components.js"
+      },
+      "require": {
+        "types": "./dist/components.d.cts",
+        "default": "./dist/components.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.cjs",
+    "dist/**/*.d.ts",
+    "dist/**/*.d.cts",
+    "dist/**/*.map",
+    "bin",
+    "scripts",
+    "skill",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "motion-presets-kit": "./bin/cli.mjs"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm build && node --test --experimental-test-module-mocks \"test/**/*.test.mjs\"",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "playground": "pnpm --filter playground dev",
+    "postinstall": "node ./scripts/postinstall.mjs",
+    "prepublishOnly": "pnpm typecheck && pnpm lint && pnpm test"
+  },
+  "peerDependencies": {
+    "motion": "^12.0.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
+    "@types/node": "^24.0.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "motion": "^12.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.0",
+    "zod": "^4.4.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
